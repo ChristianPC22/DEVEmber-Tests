@@ -1,15 +1,32 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, View, FlatList} from 'react-native';
+
+// We have an array with rest parameters (24), then iterate through every element and adding 1 to the index 
+const days = [...Array(24)].map((val, index) => index + 1);
 
 export default function App() {
   return (
     <View style = {styles.container}>
-      <Text style = {styles.text}>Cute Border Collie with black and white hair</Text>
 
-      <View style = {styles.imageContainer}>
-        <Image source = {require('./resources/img/borderCollie.jpg')} style = {styles.image}></Image>
-      </View>
-      
+      <FlatList
+        data = {days}
+        contentContainerStyle = {styles.content}
+        columnWrapperStyle = {styles.column}
+        numColumns = {2}
+        renderItem = {({ item }) => (
+          <View style = {styles.box}>
+            <Text style = {styles.text}>{item}</Text>
+          </View>
+        )}
+      />
+
+      {/* Iterate every element in the array and return their result, having a unique key that represents every day */}
+      {/*days.map(day => (
+        <View style = {styles.box} key = {day}>
+          <Text style = {styles.text}>{day}</Text>
+        </View>
+      ))*/}
+
       <StatusBar style="auto" />
     </View>
   );
@@ -19,24 +36,34 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'blanchedalmond',
-    alignItems: 'center',
+
+  },
+
+  content: {
+    gap: 10,
+    padding: 10
+  },
+
+  column: {
+    gap: 10    
+  },
+
+  box: {
+    backgroundColor: '#F9EDE3',
+    flex: 1,
+    aspectRatio: 1,
+
+    borderWidth: 1,
+    // borderWidth: StyleSheet.hairlineWidth,
+    borderColor: '#9B4521',
+    borderRadius: 20,
+
     justifyContent: 'center',
+    alignItems: 'center',
   },
 
   text: {
-    fontSize: 24,
-    textAlign: 'center',
-    width: 250,
-    marginBottom: 10,
-  },
-
-  image: {
-    width: 300,
-    height: 300
-  },
-
-  imageContainer: {
-    borderRadius: 10,
-    overflow: 'hidden'
+    color: '#9b4521',
+    fontSize: 70
   }
 });
