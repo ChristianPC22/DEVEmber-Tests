@@ -8,7 +8,7 @@ type DayListItem = {
 export default function DayListItem({ day }: DayListItem) {
     return(
     // With the 'asChild' property the object won't mess up the styles
-    <Link href = {'/user'} asChild> 
+    <Link href = {`/(days)/day${day}`} asChild> 
       <Pressable style = {styles.box}>
           <Text style = {styles.text}>{day}</Text>
       </Pressable>
