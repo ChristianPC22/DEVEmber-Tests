@@ -7,7 +7,7 @@ const DayDetailsScreen = () => {
     <View>
       {/* With this we indicate dynamically the property (title) of the single component */}
       <Stack.Screen options = {{ title: 'Day 1'}}/>
-      <Text>Day Details Screen</Text>
+      <Text style = {{ fontFamily: 'AmaticBold', fontSize: 50, textAlign: 'center' }}>Day Details Screen</Text>
     </View>
   )
 }

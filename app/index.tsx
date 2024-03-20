@@ -1,39 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, FlatList, ActivityIndicator} from 'react-native';
+import { StyleSheet, View, FlatList} from 'react-native';
 import DayListItem from '../src/components/core/DayListItem';
-
-import { useFonts, Inter_900Black } from '@expo-google-fonts/inter';
-import * as SplashScreen from 'expo-splash-screen';
-import { useEffect } from 'react';
-import { AmaticSC_400Regular, AmaticSC_700Bold } from '@expo-google-fonts/amatic-sc';
-
-// Makes the native splash screen (configured in app.json) remain visible until hideAsync is called.
-SplashScreen.preventAutoHideAsync();
 
 // We have an array with rest parameters (24), then iterate through every element and adding 1 to the index 
 const days = [...Array(24)].map((val, index) => index + 1);
 
 // Parent component
-export default function App() {
-  // Inside the array we create the variables fontsLoaded and fontError, using the map 'useFonts' we specify the key and the value of the fonts we want to load
-  const [fontsLoaded, fontError] = useFonts({
-    Inter: Inter_900Black,
-    Amatic: AmaticSC_400Regular,
-    AmaticBold: AmaticSC_700Bold,
-  });
-
-  // Hook that will be called if one of the varibles in the array changes
-  useEffect(() => {
-    if (fontsLoaded || fontError) {
-      SplashScreen.hideAsync();
-    }
-  }, [fontsLoaded, fontError])
-
-  // If the fonts weren't loaded and there's no errors, we return a simple charge animation until the fonts are charged
-  if (!fontsLoaded && !fontError) {
-    return null;
-  }
-
+export default function HomeScreen() {
   return (
     <View style = {styles.container}>
       <FlatList
