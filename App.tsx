@@ -5,6 +5,7 @@ import DayListItem from './src/components/core/DayListItem';
 import { useFonts, Inter_900Black } from '@expo-google-fonts/inter';
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
+import { AmaticSC_400Regular, AmaticSC_700Bold } from '@expo-google-fonts/amatic-sc';
 
 // 
 SplashScreen.preventAutoHideAsync();
@@ -17,6 +18,8 @@ export default function App() {
   {/* Inside the array we create the variables fontsLoaded and fontError, using the map 'useFonts' we specify the key and the value of the fonts we want to load */}
   const [fontsLoaded, fontError] = useFonts({
     Inter: Inter_900Black,
+    Amatic: AmaticSC_400Regular,
+    AmaticBold: AmaticSC_700Bold,
   });
 
   useEffect(() => {
