@@ -1,3 +1,4 @@
+import { Inter_900Black } from '@expo-google-fonts/inter';
 import { Text, View, StyleSheet } from 'react-native';
 
 type DayListItem = {
@@ -29,6 +30,7 @@ const styles = StyleSheet.create({
   
     text: {
       color: '#9b4521',
-      fontSize: 70
+      fontSize: 70,
+      fontFamily: 'Inter' // We specify the font with the fontFamily property
     }
   });
